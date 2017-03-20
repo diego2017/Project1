@@ -1,0 +1,26 @@
+
+<%= form_for @user do |f| %>
+  <%= render partial: "includes/form_errors", locals: {form: f} %>
+  <p> Please provide this info to signup ! </p>
+  <div class="ui input focus">
+    <div>
+      <p>
+        <%= "Name" %>
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= "Email    " %>
+        <%= f.text_field :email %>
+      </p>
+      <p>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </p>
+    </div>
+    <div>
+      <p>
+        <%= f.submit "Signup" %>
+      </p>
+    </div>
+  </div>
+<%end%>

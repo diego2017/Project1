@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+ .ui.main.text.container{
+   margin-top:60px;
+   margin-bottom: 20px;
+
+ }
+
+.ui.fixed.inverted.menu{
+  background-color: #a06105;
+}
+
+.ui.inverted.vertical.footer.segment{
+  background-color: #a06105;
+  color: black;
+}
