@@ -1,0 +1,11 @@
+<div class="ui fixed inverted menu">
+  <div class="ui container">
+    <%= link_to root_path, class: "header item" do %>
+      <%= image_tag "beer_logo.png", class: "logo" %>
+      Pub Compass
+    <%end%>
+    <%= link_to "Add user", signup_path, class: "item" %>
+    <%= link_to "Signin", signin_path, class: "item" %>
+    <%= link_to "Signout", signout_path, class: "item", method: "delete" %>
+  </div>
+</div>

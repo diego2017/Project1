@@ -1,0 +1,9 @@
+
+<h1>This is <%= @place.name %>!</h1>
+
+<h3>Features you can find here </h3>
+<ul>
+  <% @place.features.each do |fe| %>
+    <li><%= link_to fe.feature_name, feature_path(fe.id) %></li>
+  <%end%>
+</ul>

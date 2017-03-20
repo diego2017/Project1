@@ -1,0 +1,14 @@
+<% if @current_user %>
+  <h4>Welcome <%= @current_user.name %>!</h4>
+<%end%>
+
+<h1> Cool places in Sydney </h1>
+
+
+<ul>
+  <%= @places.each do |place| %>
+    <li>
+      <%= link_to place.name, place_path(place.id) %>
+    </li>
+  <%end%>
+</ul>

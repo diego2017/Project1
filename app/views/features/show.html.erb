@@ -1,0 +1,7 @@
+<h1><%= @feature.feature_name %></h1>
+<h3>You can find it in:</h3>
+<ul>
+  <% @feature.places.each do |pl| %>
+    <li><%= link_to pl.name, place_path(pl.id) %></li>
+  <%end%>
+</ul>
