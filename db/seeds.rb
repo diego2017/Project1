@@ -8,16 +8,16 @@
 
 puts "Welcome to this seed script :)"
 
-User.create(name: "diego", email: "diego@a.com", password_digest: "cake")
-User.create(name: "mary", email: "mary@a.com", password_digest: "cake")
-User.create(name: "tom", email: "tom@a.com", password_digest: "cake")
-User.create(name: "daniel", email: "daniel@a.com", password_digest: "cake")
-User.create(name: "laura", email: "laura@a.com", password_digest: "cake")
-User.create(name: "miriam", email: "miriam@a.com", password_digest: "cake")
-User.create(name: "alex", email: "alex@a.com", password_digest: "cake")
-User.create(name: "rebecca", email: "rebecca@a.com", password_digest: "cake")
-User.create(name: "Amy", email: "amy@a.com", password_digest: "cake")
-User.create(name: "Christina", email: "christina@a.com", password_digest: "cake")
+User.create(name: "diego", email: "diego@a.com", password: "cake")
+User.create(name: "mary", email: "mary@a.com", password: "cake")
+User.create(name: "tom", email: "tom@a.com", password: "cake")
+User.create(name: "daniel", email: "daniel@a.com", password: "cake")
+User.create(name: "laura", email: "laura@a.com", password: "cake")
+User.create(name: "miriam", email: "miriam@a.com", password: "cake")
+User.create(name: "alex", email: "alex@a.com", password: "cake")
+User.create(name: "rebecca", email: "rebecca@a.com", password: "cake")
+User.create(name: "Amy", email: "amy@a.com", password: "cake")
+User.create(name: "Christina", email: "christina@a.com", password: "cake")
 
 Place.create(user_id:1 , name: "Establishment", int_number: "", street_number: "252", street_name: "George St", suburb: "Sydney", state: "NSW", postcode: "2000", country: "Australia", geo_location: "")
 Place.create(user_id:2 , name: "The Scary Canary", int_number: "", street_number: "469", street_name: "Kent St", suburb: "Sydney", state: "NSW", postcode: "NSW", country: "Australia", geo_location: "")

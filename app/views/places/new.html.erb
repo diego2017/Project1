@@ -1,0 +1,64 @@
+
+<%= form_for @place do |p| %>
+  <%= render partial: "includes/form_errors", locals: {form: p} %>
+  <div class="ui input focus">
+    <div>
+      <h4>Provide the following info to add your cool place!</h4>
+      <p>
+        <%= "Place name" %>
+      </p>
+        <%= p.text_field :name %>
+      </p>
+      <h4> Address </h4>
+      <p>
+        <%= p.label :int_number %>
+      </p>
+      <p>
+        <%= p.text_field :int_number %>
+      </p>
+      <p>
+        <%= "Number" %>
+      </p>
+      <p>
+        <%= p.text_field :street_number %>
+      </p>
+      <p>
+        <%= "Street" %>
+      </p>
+      <p>
+        <%= p.text_field :street_name %>
+      </p>
+      <p>
+        <%= "Suburb" %>
+      </p>
+      <p>
+        <%= p.text_field :suburb %>
+      </p>
+      <p>
+        <%= "State" %>
+      </p>
+      <p>
+        <%= p.text_field :state %>
+      </p>
+      <p>
+        <%= "Postcode" %>
+      </p>
+      <p>
+        <%= p.text_field :postcode %>
+      </p>
+      <p>
+        <%= "Country" %>
+      </p>
+      <p>
+        <%= p.text_field :country %>
+      </p>
+      <p>
+        <%= "Geo-location" %>
+      </p>
+      <p>
+        <%= p.text_field :geo_location %>
+      </p>
+      <p><%= p.submit %><p/>
+    </div>
+  </div>
+<% end%>

@@ -1,6 +1,9 @@
 
-<h1>This is <%= @place.name %>!</h1>
+<h1><%= @place.name %></h1>
 
+<%= link_to "Delete place", place_path(place_id: @place.id), method: :delete %> </li>
+
+<h3> Features you can find here: </h3>
 <ul>
   <% @place.features.each do |fe| %>
     <li><%= link_to fe.feature_name, feature_path(fe.id) %></li>
