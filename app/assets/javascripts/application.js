@@ -13,3 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+// this contains all your javascript which will run on every page
+$(document).ready(function(){
+  $('.ui.accordion')
+   .accordion();
+});
