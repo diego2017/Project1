@@ -3,7 +3,9 @@
 <%end%>
 <h1> Cool places in Sydney </h1>
 
-<button class="ui button"><%= link_to "Add a cool place", new_place_path  %></button>
+<% if @current_user %>
+  <button class="ui button"><%= link_to "Add a cool place", new_place_path  %></button>
+<%end%>
 
 <ul>
   <% @places.each do |place| %>
