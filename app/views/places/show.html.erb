@@ -1,7 +1,18 @@
 
 <h1><%= @place.name %></h1>
 
-<%= link_to "Delete place", place_path(place_id: @place.id), method: :delete %> </li>
+<% if @current_user %>
+  <div class="ui buttons">
+    <button class="ui button"><%= link_to "Delete Venue", place_path(place_id: @place.id), method: :delete %></button>
+    <button class="ui button"><%= link_to "Edit Venue", edit_place_path(place_id: @place.id)%></button>
+  </div>
+<%end%>
+
+<h3> Address </h3>
+<p> <%= "#{@place.int_number}  #{@place.street_number}  #{@place.street_name},  #{@place.suburb},  #{@place.state},  #{@place.postcode},  #{@place.country}"  %>
+</p>
+
+
 
 <h3> Features you can find here: </h3>
 <ul>

@@ -3,7 +3,7 @@
 <%end%>
 <h1> Cool places in Sydney </h1>
 
-<%= link_to "Add a cool place", new_place_path  %>
+<button class="ui button"><%= link_to "Add a cool place", new_place_path  %></button>
 
 <ul>
   <% @places.each do |place| %>

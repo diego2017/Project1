@@ -27,7 +27,31 @@ class PlacesController <ApplicationController
   end
 
   def edit
+    @place = Place.find(params[:id])
+    @features = Feature.all
+  end
 
+  def update
+    # raise
+
+
+    @place = Place.find(params[:id])
+
+    # update features
+    # first delete all associations
+    @place.features.delete_all
+    # then recreate each feature association that was checked in the form
+    params[:features].each do |feature_id|
+      @place.features << Feature.find( feature_id )
+    end
+
+    # @place.user = @current_user
+
+    if @place.update_attributes(clean_params)
+      redirect_to controller: "places", action: "show", place_id: @place.id
+    else
+      render :edit
+    end
   end
 
   def destroy
