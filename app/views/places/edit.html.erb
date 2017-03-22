@@ -1,4 +1,5 @@
-<%= form_for @place do |p| %>
+<%= form_for( @place, :html => {:multipart => true} ) do |p| %>
+  <!-- the part after @place is to be able to upload images -->
   <%= render partial: "includes/form_errors", locals: {form: p} %>
   <div class="ui input focus">
     <div>
@@ -7,6 +8,12 @@
         <%= "Place name" %>
       </p>
         <%= p.text_field :name %>
+      </p>
+      <!-- this will store the image -->
+      <p>
+        <%= p.label "Image: " %>
+      </p>
+        <%= p.cl_image_upload :image %>
       </p>
       <h4> Address </h4>
       <p>
