@@ -36,3 +36,17 @@
 .six.wide.right.floated.column {
   width: 49.5%!important;
 }
+
+.button.ui.basic.icon.button {
+      box-shadow:0 0 0 1px rgba(34,36,38,.0) inset;
+          padding: 0 0 0 2em;
+}
+
+td.likesCount {
+  padding: 0;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+ }

@@ -11,8 +11,9 @@
       </p>
       <!-- this will store the image -->
       <p>
-        <%= p.label "Image: " %>
+        <%= p.label "Image" %>
       </p>
+      <p>
         <%= p.cl_image_upload :image %>
       </p>
       <h4> Address </h4>
@@ -57,12 +58,6 @@
       </p>
       <p>
         <%= p.text_field :country %>
-      </p>
-      <p>
-        <%= "Geo-location" %>
-      </p>
-      <p>
-        <%= p.text_field :geo_location %>
       </p>
 
 

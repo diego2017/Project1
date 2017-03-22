@@ -14,3 +14,31 @@
     </li>
   <%end%>
 </ul>
+
+
+<!-- ###################### map test   -->
+  <div id="map"></div>
+
+<script>
+  function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 11,
+      center: {lat: -33.8697753, lng: 151.2059688}
+    })
+    var places = [
+      <%@places.each do |location|%>
+        ['<%= location.name %>', <%= location.latitude%>, <%= location.longitude %>],
+      <%end%>
+    ];
+    places.forEach(function(location){
+      new google.maps.Marker({
+        map: map,
+        position: {lat: location[1], lng: location[2]},
+        title: location[0]
+      });
+    })
+  }
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSawZrR6b_qDsmiGyxDwf65TpYlrdUz6o&callback=initMap"">
+</script>

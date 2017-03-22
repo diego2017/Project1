@@ -41,21 +41,45 @@
             </div>
           </div>
           <h3> Features you can find here: </h3>
-          <ul>
-            <% @place.features.each do |fe| %>
-            <li><%= link_to fe.feature_name, feature_path(fe.id) %> <%= fe.review_counts[true] || 0 %> / <%= fe.review_counts[false] || 0 %>
 
-              <%= form_for @review, url: reviews_path(place_id: @place.id, feature_id: fe.id, user_id: @current_user.id, like: true), method: :post do |r| %>
-                <p><%= r.button "like" %><p/>
-              <% end%>
+          <!-- ##### -->
+          <table class="ui very basic table">
+            <tbody>
+              <% @place.features.each do |fe| %>
+                <tr>
+                  <td><%= link_to fe.feature_name, feature_path(fe.id) %>  </td>
+                  <% if @current_user %>
+                    <td>
+                      <!-- The dont like button -->
+                      <%= form_for @review, url: reviews_path(place_id: @place.id, feature_id: fe.id, user_id: @current_user.id, like: false), method: :post do |r| %>
+                      <button class="ui basic icon button">
+                        <i class="thumbs outline down icon"></i>
+                      </button>
+                      <% end%>
+                    </td>
+                    <td class="likesCount">
+                      <%= fe.review_counts[false] || 0 %>
+                    </td>
 
-              <%= form_for @review, url: reviews_path(place_id: @place.id, feature_id: fe.id, user_id: @current_user.id, like: false), method: :post do |r| %>
-                <p><%= r.button "dont like" %><p/>
-              <% end%>
+                    <td>
+                      <!-- The like button -->
+                      <%= form_for @review, url: reviews_path(place_id: @place.id, feature_id: fe.id, user_id: @current_user.id, like: true), method: :post do |r| %>
+                        <button class="ui basic icon button">
+                          <i class="thumbs outline up icon"></i>
+                        </button>
+                      <% end%>
+                    </td>
+                    <td class="likesCount">
+                      <%= fe.review_counts[true] || 0 %>
+                    </td>
+                  <%end%>
+                <tr>
+              <%end%>
+            </tbody>
+          </table>
 
-            </li>
-            <%end%>
-          </ul>
+
+          <!-- ##### -->
         </div>
         <div class="six wide right floated column">
           <%= cl_image_tag @place.image %>
