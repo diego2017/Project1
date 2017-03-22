@@ -32,3 +32,7 @@
 .ui.container {
   width: 700px;
 }
+
+.six.wide.right.floated.column {
+  width: 49.5%!important;
+}

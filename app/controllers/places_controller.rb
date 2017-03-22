@@ -6,6 +6,19 @@ class PlacesController <ApplicationController
 
   def show
     @place = Place.find(params[:id])
+    @review = Review.new
+    # @feature_reviews = {}
+    # @place.features.each do |f|
+    #   # this will return a hash of the count of both true & false values for a particular feature
+    #   @feature_reviews[f.id] = Review.where(place_id: @place.id, feature_id: f.id).group(:like).count
+    # end
+    # now @feature_reviews will look something like this:
+    # {
+    #   2 => {false => 1, true => 2},
+    #   4 => {false => 3, true => 4},
+    #   5 => {false => 2, true => 5}
+    # }
+
   end
 
   def new
