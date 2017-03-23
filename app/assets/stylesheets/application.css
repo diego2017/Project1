@@ -60,3 +60,12 @@ td.likesCount {
  i.thumbs.alone {
    padding-left: 2em;
  }
+
+ .sidebar-scroll{
+   height:400px;
+   overflow:scroll;
+ }
+
+ .sidebar-scroll .item:hover{
+   cursor:pointer;
+ }

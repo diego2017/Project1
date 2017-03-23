@@ -7,28 +7,29 @@
   <button class="ui button"><%= link_to "Add a cool place", new_place_path  %></button>
 <%end%>
 
-////
-
-<div class="ui items">
-  <% @places.each do |place| %>
-    <div class="item">
-      <div class="ui tiny image">
-        <%= cl_image_tag place.image %>
-      </div>
-      <div class="middle aligned content">
-        <%= link_to place.name, place_path(place.id) %>
-      </div>
+<div class="ui grid">
+  <div class="six wide column sidebar-scroll">
+    <div class="ui items">
+      <% @places.each do |place| %>
+        <div class="item">
+          <div class="ui tiny image">
+            <%= cl_image_tag place.image %>
+          </div>
+          <div class="middle aligned content">
+            <%= link_to place.name, place_path(place.id) %>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+  <div class="ten wide column">
+    <div id="map"></div>
+  </div>
 </div>
-
-
 
 
 <!-- ###################### map test   -->
 
-
-  <div id="map"></div>
 
 <script>
   function initMap() {

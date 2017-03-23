@@ -19,4 +19,8 @@
 $(document).ready(function(){
   $('.ui.accordion')
    .accordion();
+
+  $(".sidebar-scroll .item").on("click", function(el){
+    window.location = $(this).find("a").attr("href");
+  })
 });
