@@ -21,11 +21,11 @@
  }
 
 .ui.fixed.inverted.menu{
-  background-color: #a06105;
+  background-color: rgb(42, 59, 76);
 }
 
 .ui.inverted.vertical.footer.segment{
-  background-color: #a06105;
+  background-color: rgb(42, 59, 76);
   color: black;
 }
 

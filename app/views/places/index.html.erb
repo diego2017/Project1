@@ -1,11 +1,6 @@
-<% if @current_user %>
-  <h4>Welcome <%= @current_user.name %>!</h4>
-<%end%>
 <h1> Cool places in Sydney </h1>
 
-<% if @current_user %>
-  <button class="ui button"><%= link_to "Add a cool place", new_place_path  %></button>
-<%end%>
+
 
 <div class="ui grid">
   <div class="six wide column sidebar-scroll">
@@ -34,7 +29,7 @@
 <script>
   function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 11,
+      zoom: 13,
       center: {lat: -33.8697753, lng: 151.2059688}
     })
     var places = [

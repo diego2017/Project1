@@ -4,12 +4,20 @@
       <%= image_tag "beer_logo.png", class: "logo" %>
       Pub Compass
     <%end%>
-    <% unless @current_user %>
-      <%= link_to "Add user", signup_path, class: "item" %>
-      <%= link_to "Signin", signin_path, class: "item" %>
-    <% end %>
-    <% if @current_user %>
-      <%= link_to "Signout", signout_path, class: "item", method: "delete" %>
-    <% end %>
+
+    <div class="right menu">
+      <% if @current_user %>
+        <% text = "#{@current_user.name} - Sign out"%>
+      <%end%>
+      <% unless @current_user %>
+        <%= link_to "Add user", signup_path, class: "item" %>
+        <%= link_to "Signin", signin_path, class: "item" %>
+      <% end %>
+      <% if @current_user %>
+        <%= link_to "Add venue", new_place_path, class: "item"%>
+        <%= link_to text, signout_path, class: "item", method: "delete" %>
+      <% end %>
+
+    </div>
   </div>
 </div>
