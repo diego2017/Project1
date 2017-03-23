@@ -1,5 +1,5 @@
 
-<%= form_for @place do |p| %>
+<%= form_for( @place, :html => {:multipart => true} ) do |p| %>
   <%= render partial: "includes/form_errors", locals: {form: p} %>
   <div class="ui input focus">
     <div>
@@ -9,21 +9,28 @@
       </p>
         <%= p.text_field :name %>
       </p>
+      <!-- this will store the image -->
+      <p>
+        <%= p.label "Image" %>
+      </p>
+      <p>
+        <%= p.cl_image_upload :image %>
+      </p>
       <h4> Address </h4>
       <p>
-        <%= p.label :int_number %>
+        <%= "Suite / Apartment Number" %>
       </p>
       <p>
         <%= p.text_field :int_number %>
       </p>
       <p>
-        <%= "Number" %>
+        <%= "Street Number" %>
       </p>
       <p>
         <%= p.text_field :street_number %>
       </p>
       <p>
-        <%= "Street" %>
+        <%= "Street Name" %>
       </p>
       <p>
         <%= p.text_field :street_name %>
@@ -52,6 +59,17 @@
       <p>
         <%= p.text_field :country %>
       </p>
+
+      <!-- show all the features -->
+      <h3> Features found in venue</h3>
+      <% @features.each do |f| %>
+        <p>
+          <div class="ui checkbox">
+              <%= check_box_tag "features[#{ f.id }]", true, @place.features.include?( f ) %>
+            <label><%= f.feature_name %> </label>
+          </div>
+        </p>
+      <%end%>
       <p><%= p.submit %><p/>
     </div>
   </div>

@@ -34,6 +34,7 @@ class PlacesController <ApplicationController
 
   def new
     @place = Place.new
+    @features = Feature.all
   end
 
   def create
@@ -44,6 +45,24 @@ class PlacesController <ApplicationController
     # raise params
     if @place.save
       # raise
+      # This is the magic stuff that will let us upload an image to Cloudinary when creating a new animal.
+      # First, check to see if the user has attached an image for uploading
+      if params[:file].present?
+        # Then call Cloudinary's upload method, passing in the file in params
+        req = Cloudinary::Uploader.upload(params[:file])
+        # Using the public_id allows us to use Cloudinary's image transformation methods.
+        @place.image = req["public_id"]
+        @place.save
+      end
+
+      # update features
+      # first delete all associations
+      @place.features.delete_all
+      # then recreate each feature association that was checked in the form
+      params[:features].each do |feature_id|
+        @place.features << Feature.find( feature_id )
+      end
+
       redirect_to root_path
     else
       render :new
