@@ -10,45 +10,48 @@
 
 <p> </p>
 
-<div class="ui vertical stripe segment">
-    <div class="ui middle aligned stackable grid container">
-      <div class="row">
-        <div class="eight wide column">
-          <div class="ui accordion">
-            <div class="title">
-              <i class="dropdown icon"></i>
-              Address
-            </div>
-            <div class="content">
-              <p class="transition visible" style="display: block !important;">
-                <%= "#{@place.int_number}  #{@place.street_number}  #{@place.street_name}, #{@place.suburb}"  %>
-              </p>
-              <p class="transition visible" style="display: block !important;">
-                <%= "#{@place.state}  #{@place.postcode} #{@place.country}"  %>
-              </p>
-            </div>
-            <div class="title">
-              <i class="dropdown icon"></i>
-              Contact
-            </div>
-            <div class="content">
-              <p class="transition hidden">
-                <%= "Venue owner: #{User.find(@place.user_id).name}"%>
-              </p>
-              <p class="transition hidden">
-                <%= "Email: #{User.find(@place.user_id).email}"%>
-              </p>
-            </div>
+<div class="ui vertical stripe segment">  <!-- the div with details, features, image and map  -->
+  <div class="ui middle aligned stackable grid container">
+    <div class="row">
+      <div class="eight wide column">  <!-- left column: details, features-->
+        <div class="ui accordion">
+          <div class="title">
+            <i class="dropdown icon"></i>
+            Address
           </div>
-          <h3> Features you can find here: </h3>
+          <div class="content">
+            <p class="transition visible" style="display: block !important;">
+              <%= "#{@place.int_number}  #{@place.street_number}  #{@place.street_name}, #{@place.suburb}"  %>
+            </p>
+            <p class="transition visible" style="display: block !important;">
+              <%= "#{@place.state}  #{@place.postcode} #{@place.country}"  %>
+            </p>
+          </div>
+          <div class="title">
+            <i class="dropdown icon"></i>
+            Contact
+          </div>
+          <div class="content">
+            <p class="transition hidden">
+              <%= "Venue owner: #{User.find(@place.user_id).name}"%>
+            </p>
+            <p class="transition hidden">
+              <%= "Email: #{User.find(@place.user_id).email}"%>
+            </p>
+          </div>
+        </div>
+        <h3> Features you can find here: </h3>
 
-          <!-- ##### -->
-          <table class="ui very basic table">
-            <tbody>
-              <% @place.features.each do |fe| %>
-                <tr>
-                  <td><%= link_to fe.feature_name, feature_path(fe.id) %>  </td>
-                  <% if @current_user %>
+        <!-- ##### -->
+        <table class="ui very basic table">
+          <tbody>
+            <% @place.features.each do |fe| %>
+              <tr>
+                <td><%= link_to fe.feature_name, feature_path(fe.id) %>  </td>
+                <% if @current_user %>
+
+                  <!-- If a review has NOT been created for the feature by the current user -->
+                  <% if @reviewed[fe.id] == nil %>
                     <td>
                       <!-- The dont like button -->
                       <%= form_for @review, url: reviews_path(place_id: @place.id, feature_id: fe.id, user_id: @current_user.id, like: false), method: :post do |r| %>
@@ -72,19 +75,65 @@
                     <td class="likesCount">
                       <%= fe.review_counts[true] || 0 %>
                     </td>
+
+                  <!-- If a review has been created for the feature by the current user -->
+                  <%else%>
+                    <!-- The dont like icon -->
+                    <td>
+                      <% if @reviewed[fe.id] == true %>
+                        <i class="thumbs outline down icon alone"></i>
+                      <% else %>
+                        <i class="thumbs down icon alone"></i>
+                      <% end %>
+                    </td>
+                    <td class="likesCount">
+                      <%= fe.review_counts[false] || 0 %>
+                    </td>
+
+                    <!-- The like icon -->
+                    <td>
+                      <% if @reviewed[fe.id] == true %>
+                        <i class="thumbs up icon alone"></i>
+                      <% else %>
+                        <i class="thumbs outline up icon alone"></i>
+                      <% end%>
+                    </td>
+                    <td class="likesCount">
+                      <%= fe.review_counts[true] || 0 %>
+                    </td>
                   <%end%>
-                <tr>
-              <%end%>
-            </tbody>
-          </table>
+                <%end%>
+              <tr>
+            <%end%>
+          </tbody>
+        </table>
 
 
-          <!-- ##### -->
-        </div>
-        <div class="six wide right floated column">
-          <%= cl_image_tag @place.image %>
-          <!-- <img src="https://static.pexels.com/photos/26906/pexels-photo-26906.jpg" class="ui large bordered rounded image"> -->
-        </div>
-      </div>
+        <!-- ##### -->
+      </div>  <!-- div: eight wide column /left column: details, features-->
+      <div class="six wide right floated column"> <!-- right column: image, map-->
+        <%= cl_image_tag @place.image %>
+
+        <div id="map2"></div>
+        <script>
+          function initMap() {
+            var map = new google.maps.Map(document.getElementById('map2'), {
+              zoom: 13,
+              center: {lat: <%=@place.latitude%>, lng: <%=@place.longitude%>}
+            })
+            new google.maps.Marker({
+              map: map,
+              position: {lat: <%=@place.latitude%>, lng: <%=@place.longitude%>},
+              title: '<% @place.name %>'
+            });
+          }
+        </script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSawZrR6b_qDsmiGyxDwf65TpYlrdUz6o&callback=initMap">
+        </script>
+
+
+      </div>   <!-- div: six wide right floated column / right column: image, map-->
     </div>
   </div>
+</div>  <!-- div: ui vertical stripe segment / with details, features, image and map  -->

@@ -7,6 +7,18 @@ class PlacesController <ApplicationController
   def show
     @place = Place.find(params[:id])
     @review = Review.new
+    if @current_user
+      @reviewed = {}
+      @place.features.each do |f|
+        review = Review.where(feature_id: f.id, user_id: @current_user.id, place_id: @place.id).first
+        # we use first because the return value for the line above is an array
+        @reviewed[f.id] = review
+        if review
+          @reviewed[f.id] = review.like
+        end
+      end
+    end
+# binding.pry
     # @feature_reviews = {}
     # @place.features.each do |f|
     #   # this will return a hash of the count of both true & false values for a particular feature
@@ -18,7 +30,6 @@ class PlacesController <ApplicationController
     #   4 => {false => 3, true => 4},
     #   5 => {false => 2, true => 5}
     # }
-
   end
 
   def new

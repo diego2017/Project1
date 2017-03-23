@@ -46,7 +46,17 @@ td.likesCount {
   padding: 0;
 }
 
+
 #map {
   height: 400px;
   width: 100%;
+ }
+
+ #map2 {
+   height: 180px;
+   width: 100%;
+  }
+
+ i.thumbs.alone {
+   padding-left: 2em;
  }

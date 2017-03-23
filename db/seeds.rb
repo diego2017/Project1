@@ -19,16 +19,16 @@ User.create(name: "rebecca", email: "rebecca@a.com", password: "cake")
 User.create(name: "Amy", email: "amy@a.com", password: "cake")
 User.create(name: "Christina", email: "christina@a.com", password: "cake")
 
-Place.create(user_id:1 , name: "Establishment", int_number: "", street_number: "252", street_name: "George St", suburb: "Sydney", state: "NSW", postcode: "2000", country: "Australia")
-Place.create(user_id:2 , name: "The Scary Canary", int_number: "", street_number: "469", street_name: "Kent St", suburb: "Sydney", state: "NSW", postcode: "NSW", country: "Australia")
-Place.create(user_id:2 , name: "Marquee", int_number: "", street_number: "5", street_name: "Pirrama Rb", suburb: "Pyrmont", state: "NSW", postcode: "2009", country: "Australia")
-Place.create(user_id:3 , name: "Tio's", int_number: "", street_number: "14", street_name: "Foster St", suburb: "Surry Hills", state: "NSW", postcode: "2010", country: "Australia")
-Place.create(user_id:3 , name: "Bavarian Bier Café", int_number: "", street_number: "24", street_name: "York St", suburb: "Sydney", state: "NSW", postcode: "2000", country: "Australia")
-Place.create(user_id:3, name: "Opera Bar", int_number: "", street_number: "", street_name: "Macquarie St,", suburb: "Sydney", state: "NSW", postcode: "2000", country: "Australia")
-Place.create(user_id:2 , name: "Bitter Phew", int_number: "1", street_number: "137", street_name: "Oxford St", suburb: "Darlinghurst", state: "NSW", postcode: "2010", country: "Australia")
-Place.create(user_id:3 , name: "Bar Luca", int_number: "", street_number: "52", street_name: "Phillip St", suburb: "Sydney", state: "NSW", postcode: "2000", country: "Australia")
-Place.create(user_id:3 , name: "Shady Pines Saloon", int_number: "4", street_number: "256", street_name: "Crown St", suburb: "Darlinghurst", state: "NSW", postcode: "2000", country: "Australia")
-Place.create(user_id:1 , name: "Ivy", int_number: "", street_number: "330", street_name: "George St", suburb: "Sydney", state: "NSW", postcode: "2000", country: "Australia")
+Place.create(user_id:1 , name: "Establishment", int_number: "", street_number: "252", street_name: "George St", suburb: "Sydney", state: "NSW", postcode: "2000", country: "Australia", image: "i2c5b1vaqnsfznsg7ukf")
+Place.create(user_id:2 , name: "The Scary Canary", int_number: "", street_number: "469", street_name: "Kent St", suburb: "Sydney", state: "NSW", postcode: "NSW", country: "Australia", image: "u4zookcpcapefa5pjieb")
+Place.create(user_id:2 , name: "Marquee", int_number: "", street_number: "5", street_name: "Pirrama Rb", suburb: "Pyrmont", state: "NSW", postcode: "2009", country: "Australia", image: "bfmgglttyxzqah6ax5zb")
+Place.create(user_id:3 , name: "Tio's", int_number: "", street_number: "14", street_name: "Foster St", suburb: "Surry Hills", state: "NSW", postcode: "2010", country: "Australia", image: "dn48lizfxkwf1erqi7jj")
+Place.create(user_id:3 , name: "Bavarian Bier Café", int_number: "", street_number: "24", street_name: "York St", suburb: "Sydney", state: "NSW", postcode: "2000", country: "Australia", image: "akorsvrqmtolr7vfd2b0")
+Place.create(user_id:3, name: "Opera Bar", int_number: "", street_number: "", street_name: "Macquarie St,", suburb: "Sydney", state: "NSW", postcode: "2000", country: "Australia", image: "lpw85ohcmbp01gvjx7wt")
+Place.create(user_id:2 , name: "Bitter Phew", int_number: "1", street_number: "137", street_name: "Oxford St", suburb: "Darlinghurst", state: "NSW", postcode: "2010", country: "Australia", image: "lw4lgp2blsfg5ji486i5")
+Place.create(user_id:3 , name: "Bar Luca", int_number: "", street_number: "52", street_name: "Phillip St", suburb: "Sydney", state: "NSW", postcode: "2000", country: "Australia", image: "l1aukumoerpy1a0tzsmk")
+Place.create(user_id:3 , name: "Shady Pines Saloon", int_number: "4", street_number: "256", street_name: "Crown St", suburb: "Darlinghurst", state: "NSW", postcode: "2000", country: "Australia", image: "qazfzzfiox3guvytkfmh")
+Place.create(user_id:1 , name: "Ivy", int_number: "", street_number: "330", street_name: "George St", suburb: "Sydney", state: "NSW", postcode: "2000", country: "Australia", image: "qgfewjpnvbe1k2nlqslv")
 
 Feature.create(feature_name: "Imported Beers", feature_description: "")
 Feature.create(feature_name: "Live Music", feature_description: "")
@@ -40,19 +40,6 @@ Feature.create(feature_name: "Uni / Backpackers Bar", feature_description: "")
 Feature.create(feature_name: "Dance Club", feature_description: "")
 Feature.create(feature_name: "Craft Beers", feature_description: "")
 Feature.create(feature_name: "Good prices", feature_description: "")
-
-Review.create(place_id:1 , feature_id:2 , user_id:4 , like: false)
-Review.create(place_id:1 , feature_id:3 , user_id:4 , like: true)
-Review.create(place_id:1 , feature_id:8 , user_id:5 , like: false)
-Review.create(place_id:1 , feature_id:6 , user_id:5 , like: true)
-Review.create(place_id:1 , feature_id:5, user_id:5 , like: false)
-Review.create(place_id:1 , feature_id:4 , user_id:4 , like: true)
-Review.create(place_id:1 , feature_id:8 , user_id:4 , like: false)
-Review.create(place_id:1 , feature_id:2 , user_id:7 , like: true)
-Review.create(place_id:1 , feature_id:4 , user_id:7 , like: true)
-Review.create(place_id:1 , feature_id:2 , user_id:8 , like: false)
-Review.create(place_id:1 , feature_id:6 , user_id:7 , like: true)
-
 
 Place.find(1).features << Feature.find(2)
 Place.find(1).features << Feature.find(3)
@@ -109,8 +96,21 @@ Place.find(10).features << Feature.find(4)
 Place.find(10).features << Feature.find(6)
 Place.find(10).features << Feature.find(8)
 
+Review.create(place_id:1 , feature_id:2 , user_id:4 , like: false)
+Review.create(place_id:1 , feature_id:3 , user_id:4 , like: true)
+Review.create(place_id:1 , feature_id:8 , user_id:5 , like: false)
+Review.create(place_id:1 , feature_id:6 , user_id:5 , like: true)
+Review.create(place_id:1 , feature_id:5, user_id:5 , like: false)
+Review.create(place_id:1 , feature_id:4 , user_id:4 , like: true)
+Review.create(place_id:1 , feature_id:8 , user_id:4 , like: false)
+Review.create(place_id:1 , feature_id:2 , user_id:7 , like: true)
+Review.create(place_id:1 , feature_id:4 , user_id:7 , like: true)
+Review.create(place_id:1 , feature_id:2 , user_id:8 , like: false)
+Review.create(place_id:1 , feature_id:6 , user_id:7 , like: true)
+
+
 #
-# features_array = [
+# features_places = [
 #   {
 #     place: 1,
 #     features: [2, 3, 4, 5, 6, 8]
@@ -154,10 +154,10 @@ Place.find(10).features << Feature.find(8)
 # ]
 #
 # # Enter the features for each place, and create random reviews for the features entered
-# features_array.each do |fa|   #go through each place in the array
-#   place_id = fa[:place]
-#   features_array[:features].each do |fe|
-#     feature_id = fe
+# features_places.each do |location|   #go through each place in the array
+#   place_id = location[:place]
+#   features_places[:features].each do |fe|
+#     feature_id = location[:features][fe]
 #     Place.find(place_id).features << Feature.find(feature_id)
 #   end
 # end
