@@ -1,7 +1,7 @@
 <h1> Cool places in Sydney </h1>
 
 
-
+<!-- list of places -->
 <div class="ui grid">
   <div class="six wide column sidebar-scroll">
     <div class="ui items">
@@ -17,15 +17,14 @@
       <% end %>
     </div>
   </div>
+  <!-- the map on the right-hand side of index page -->
   <div class="ten wide column">
     <div id="map"></div>
   </div>
 </div>
 
 
-<!-- ###################### map test   -->
-
-
+<!-- ###################### map code  -->
 <script>
   function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
