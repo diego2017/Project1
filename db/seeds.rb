@@ -34,6 +34,7 @@ p7 = Place.create(user:u2 , name: "Bitter Phew", int_number: "1", street_number:
 p8 = Place.create(user:u3 , name: "Bar Luca", int_number: "", street_number: "52", street_name: "Phillip St", suburb: "Sydney", state: "NSW", postcode: "2000", country: "Australia", image: "l1aukumoerpy1a0tzsmk")
 p9 = Place.create(user:u3 , name: "Shady Pines Saloon", int_number: "4", street_number: "256", street_name: "Crown St", suburb: "Darlinghurst", state: "NSW", postcode: "2000", country: "Australia", image: "qazfzzfiox3guvytkfmh")
 p10 = Place.create(user:u1 , name: "Ivy", int_number: "", street_number: "330", street_name: "George St", suburb: "Sydney", state: "NSW", postcode: "2000", country: "Australia", image: "qgfewjpnvbe1k2nlqslv")
+p11 = Place.create(user:u6 , name: "World Bar", int_number: "", street_number: "24", street_name: "Bayswater Rd", suburb: "Kings Cross", state: "NSW", postcode: "2011", country: "Australia", image: "mymc066xtm2wn9uejtlt")
 
 f1 = Feature.create(feature_name: "Imported Beers", feature_description: "")
 f2 = Feature.create(feature_name: "Live Music", feature_description: "")
@@ -100,6 +101,11 @@ p10.features << f3
 p10.features << f4
 p10.features << f6
 p10.features << f8
+p11.features << f2
+p11.features << f6
+p11.features << f7
+p11.features << f8
+p11.features << f10
 
 Review.create(place:p1, feature:f2 , user:u4 , like: false)
 Review.create(place:p1, feature:f3 , user:u4 , like: true)
