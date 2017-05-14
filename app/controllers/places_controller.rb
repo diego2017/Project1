@@ -45,7 +45,7 @@ class PlacesController <ApplicationController
     # raise params
     if @place.save
       # raise
-      # This is the magic stuff that will let us upload an image to Cloudinary when creating a new animal.
+      # This is the magic stuff that will let us upload an image to Cloudinary.
       # First, check to see if the user has attached an image for uploading
       if params[:file].present?
         # Then call Cloudinary's upload method, passing in the file in params
@@ -79,7 +79,9 @@ class PlacesController <ApplicationController
     # raise params
     @place = Place.find(params[:id])
 
-    # This is the magic stuff that will let us upload an image to Cloudinary when creating a new animal.
+    
+
+    # This is the magic stuff that will let us upload an image to Cloudinary.
     # First, check to see if the user has attached an image for uploading
     if params[:file].present?
       # Then call Cloudinary's upload method, passing in the file in params
