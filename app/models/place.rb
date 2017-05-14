@@ -7,6 +7,7 @@ class Place < ApplicationRecord
   after_validation :geocode          # auto-fetch coordinates
 
   def full_street_address
+    # joins all the elements entered by user to create a full address
     street_number + " " + street_name + ", " + suburb + " " + state + " " + postcode + country
   end
 end

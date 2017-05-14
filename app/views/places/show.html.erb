@@ -3,6 +3,7 @@
 
 <!-- only the user who created the place can edit or delete it -->
 <% if @current_user %>
+<% if @current_user %>
    <% if @current_user.id == @place.user_id %>
      <div class="ui buttons">
        <button class="ui button"><%= link_to "Delete Venue", place_path(place_id: @place.id), method: :delete %></button>
